@@ -1,0 +1,191 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Company Hiring Schema",
+  "description": "Schema for a company's hiring information",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the company"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "To add multiple address lines, use \n. For example, 1234 Generic Street\n Generic Area"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, PK"
+        },
+        "region": {
+          "type": "string",
+          "description": "The general region where you live. Can be a US state, or a province, for instance."
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the company"
+    },
+    "profiles": {
+      "type": "array",
+      "description": "Specify any number of social networks that you participate in",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "network": {
+            "type": "string",
+            "description": "e.g. LinkedIn or Glassdoor"
+          },
+          "username": {
+            "type": "string",
+            "description": "e.g. saascompany"
+          },
+          "url": {
+            "type": "string",
+            "description": "e.g. http://linkedin.com/in/saascompany"
+          }
+        }
+      }
+    },
+    "jobOpenings": {
+      "type": "array",
+      "description": "An array of job openings for the company",
+      "items": {
+        "$ref": "#/definitions/jobOpening"
+      }
+    }
+  },
+  "definitions": {
+    "jobOpening": {
+      "type": "object",
+      "description": "Schema for a job opening",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the job opening"
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the job opening"
+        },
+        "location": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "To add multiple address lines, use \n. For example, 1234 Generic Street\n Generic Area"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, PK"
+            },
+            "region": {
+              "type": "string",
+              "description": "The general region where you live. Can be a US state, or a province, for instance."
+            }
+          }
+        },
+        "workLocation": {
+          "type": "string",
+          "description": "The type of work location for the job opening",
+          "enum": [
+            "REMOTE",
+            "ONSITE",
+            "HYBRID"
+          ]
+        },
+        "skills": {
+          "type": "array",
+          "description": "An array of required skills for the job",
+          "items": {
+            "type": "string"
+          }
+        },
+        "experience": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The required experience for the job"
+        },
+        "salaryRange": {
+          "type": "object",
+          "description": "The salary range for the job opening",
+          "properties": {
+            "min": {
+              "type": "number",
+              "description": "The minimum salary for the job"
+            },
+            "max": {
+              "type": "number",
+              "description": "The maximum salary for the job"
+            },
+            "currency": {
+              "type": "string",
+              "description": "The currency of the salary"
+            },
+            "frequency": {
+              "type": "string",
+              "description": "The frequency of the salary (e.g. hourly, daily, weekly, monthly)",
+              "enum": [
+                "HOURLY",
+                "DAILY",
+                "WEEKLY",
+                "BIWEEKLY",
+                "MONTHLY",
+                "ANNUAL",
+                "ONETIME"
+              ]
+            }
+          },
+          "required": [
+            "min",
+            "max",
+            "currency",
+            "frequency"
+          ]
+        },
+        "benefits": {
+          "type": "array",
+          "description": "An array of benefits for the job",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "location",
+        "workLocation",
+        "skills",
+        "experience",
+        "salaryRange"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "location",
+    "description",
+    "website",
+    "jobOpenings"
+  ]
+}

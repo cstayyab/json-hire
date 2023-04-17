@@ -1,0 +1,34 @@
+{
+  "name": "json-hire",
+  "version": "0.0.1",
+  "description": "JSON Company and JobOpening Schema",
+  "main": "validator.js",
+  "scripts": {
+    "test": "npm run validate",
+    "validate": "ajv validate -s node_modules/ajv/dist/refs/json-schema-draft-07 -d schema",
+    "preversion": "npm test",
+    "postversion": "git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cstayyab/json-hire.git"
+  },
+  "author": "Muhammad Tayyab Sheikh <me@cstayyab.com> (https://cstayyab.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cstayyab/json-hire/issues"
+  },
+  "homepage": "https://github.com/cstayyab/json-hire#readme",
+  "dependencies": {
+    "z-schema": "^4.2.4"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "ajv-cli": "^5.0.0",
+    "json-metaschema": "^1.3.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.6.3"
+  }
+}

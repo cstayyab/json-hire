@@ -1,0 +1,48 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cstayyab/json-hire/v0.0.1/schema.json",
+    "name": "Acme SaaS Solutions",
+    "description": "A Generic SaaS company",
+    "location": {
+      "city": "San Francisco",
+      "region": "California",
+      "country": "USA"
+    },
+    "website": "https://www.acmesaas.com",
+    "contactEmail": "contact@acmesaas.com",
+    "jobOpenings": [
+      {
+        "title": "DevOps Engineer",
+        "description": "We're looking for an experienced DevOps Engineer to help us build and manage our cloud infrastructure.",
+        "workLocation": "REMOTE",
+        "location": {
+          "address": "123 Street",
+          "city": "San Francisco",
+          "countryCode": "US",
+          "postalCode": "94016",
+          "region": "California"
+        },
+        "salaryRange": {
+          "min": 3000,
+          "max": 4000,
+          "frequency": "MONTHLY",
+          "currency": "USD"
+        },
+        "benefits": [
+          "Health insurance",
+          "401k matching",
+          "Flexible work hours"
+        ],
+        "experience": [
+          "3+ years of experience as a DevOps Engineer",
+          "Experience with AWS, Docker, and Kubernetes",
+          "Strong scripting skills in Python or Bash",
+          "Excellent communication and problem-solving skills"
+        ],
+        "skills": [
+          "Ansible",
+          "AWS",
+          "Linux"
+        ]
+      }
+    ]
+  }
